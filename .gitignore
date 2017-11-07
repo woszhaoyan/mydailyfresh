@@ -1,0 +1,3 @@
+*.pyc
+dailyfresh/df_user/migrations/*
+dailyfresh/dailyfresh/settings.pyc
