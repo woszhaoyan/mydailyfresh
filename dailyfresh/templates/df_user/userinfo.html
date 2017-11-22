@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户中心</title>
+</head>
+<body>
+    <div>
+        <h2>基本信息</h2>
+        <div>
+            用户名: {{ user_name }}
+        </div>
+        <div>
+            <!-- default与冒号之间不能有空格，不然会报 default requires 2 arguments, 1 provided 错误 -->
+            手机号: {{ user_phone | default:"00000000000" }}
+        </div>
+        <div>
+            地址: {{ user_addr | default:"" }}
+        </div>
+
+    </div>
+
+
+</body>
+</html>

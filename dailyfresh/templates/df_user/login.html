@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <script type="text/javascript" src="/static/js/jquery-1.12.4.min.js">
+        $(function () {
+
+            user_name_input = true
+            user_passwd_input = true
+
+            if({{ error_username }} == 1){
+                $("#user_name").next().html("用户名错误")
+                $("#user_name").next().show()
+                user_name_input = false
+            }
+
+            if({{ error_passwd }} == 1){
+                $("#user_passwd").next().html("密码错误")
+                $("#user_passwd").next().show()
+                user_passwd_input = false
+            }
+
+            $("#user_name").blur(function () {
+                var name = $("#user_name").val()
+                if(name.length <= 0){
+                    $("#user_name").next().html("用户名不可以为空")
+                    $("#user_name").next().show()
+                    user_name_input = false
+                }
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+
+    <div>
+        <div>
+            <h2>用户登录</h2>
+        </div>
+        <div>
+            <form action="/user/login_handle/" method="post">
+                <ul>
+                    <li>
+                        <label>用户名:</label>
+                        <input type="text" name="user_name" id="user_name">
+                        <span class="error_tips">提示信息</span>
+                    </li>
+                    <li>
+                        <label>密码:</label>
+                        <input type="password" name="user_passwd" id="user_passwd">
+                        <span class="error_tips">提示信息</span>
+                    </li>
+                    <li>
+                       <input type="checkbox" name="remember" id="remember" checked="checked">
+                       <label>记住用户名</label>
+                        <a href="#">忘记密码</a>
+                    </li>
+                    <li>
+                        <input type="submit" value="登 录">
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div>
+            <label>还没有账号？</label>
+            <a href="/user/register/">免费注册</a>
+        </div>
+    </div>
+
+</body>
+</html>

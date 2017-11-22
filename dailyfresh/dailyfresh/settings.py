@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for dailyfresh project.
 
@@ -44,7 +45,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -108,9 +109,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# admin页面使用中文
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+# Asia/Shanghai为中国时间
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
