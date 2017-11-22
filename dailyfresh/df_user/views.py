@@ -131,9 +131,22 @@ def get_user_receive_addr(request):
 # 添加收获地址信息
 @islogin
 def add_user_receive_addr(request):
-    new_user_name = request.POST['receive_name']
-    new_user_phone = request.POST['receive_phone']
-    new_user_addr = request.POST['receive_addr']
-    user_id = request.session['user_id']
 
-    
+    #从前端获取新增地址的信息，并添加到表里
+    receive_info = ReceiveInfo()
+    receive_info.receive_name = request.POST['receive_name']
+    receive_info.receive_phone = request.POST['receive_phone']
+    receive_info.receive_addr = request.POST['receive_addr']
+    receive_info.receive_user_id = request.session['user_id']
+    receive_info.save()
+
+    return HttpResponseRedirect('/user/receive_addr/')
+
+@islogin
+def del_user_receive_addr(request, id):
+
+    #从前端获取要删除地址的id
+    addr_info = ReceiveInfo.objects.filter(pk=id)
+    addr_info.delete()
+
+    return HttpResponseRedirect('/user/receive_addr/')

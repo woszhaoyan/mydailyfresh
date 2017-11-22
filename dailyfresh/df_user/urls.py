@@ -25,7 +25,8 @@ urlpatterns = [
     url(r'^login/', views.login),
     url(r'^login_handle/', views.login_handle),
     url(r'^info/', views.info),
-    url(r'^user_addr/', views.get_user_receive_addr),
-
+    url(r'^receive_addr/', views.get_user_receive_addr),
+    url(r'^add_receive_addr/', views.add_user_receive_addr),
+    url(r'^del_receive_addr/(?P<id>[0-9]+)/', views.del_user_receive_addr),
 
 ]

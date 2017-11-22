@@ -10,7 +10,7 @@
         <label>收获地址:</label>
         <ul>
             {% for addrItem in address %}
-                <form action="" method="post">
+                <form action="/user/del_receive_addr/{{ addrItem.id }}/" method="post">
                     {{ addrItem.receive_addr }} ({{ addrItem.receive_name }}) {{ addrItem.receive_phone }}
                     <input type="submit" value="delete">
                 </form>
@@ -20,7 +20,7 @@
     </div>
 
     <div>
-        <form action="" method="post">
+        <form action="/user/add_receive_addr/" method="post" name="add_receive_addr">
             <div>
                 <label>收件人:</label>
                 <input type="text" name="receive_name" id="receive_name">
